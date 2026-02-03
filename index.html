@@ -239,3 +239,64 @@ function renderCart(){
 
 </body>
 </html>
+<script>
+// === INSTAGRAM BUTTON ===
+const instaBtn = document.createElement("a");
+instaBtn.href = "https://instagram.com/aurvion";
+instaBtn.target = "_blank";
+instaBtn.innerHTML = "📸 Instagram";
+instaBtn.style.cssText = `
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ff7a00;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  z-index:9999;
+`;
+document.body.appendChild(instaBtn);
+
+
+// === SEARCH BAR (TEMU STYLE) ===
+const searchBar = document.createElement("input");
+searchBar.placeholder = "Ürün ara...";
+searchBar.style.cssText = `
+  width:90%;
+  max-width:400px;
+  padding:12px;
+  margin:20px auto;
+  display:block;
+  border-radius:8px;
+  border:1px solid #ccc;
+`;
+searchBar.onkeyup = function(){
+  const val = this.value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display = p.innerText.toLowerCase().includes(val) ? "block" : "none";
+  });
+};
+document.body.insertBefore(searchBar, document.body.children[1]);
+
+
+// === FAKE NOTIFICATION (TEMU VIBE) ===
+setTimeout(()=>{
+  const notif = document.createElement("div");
+  notif.innerText = "🔥 Az önce 1 kişi bu ürünü satın aldı!";
+  notif.style.cssText = `
+    position:fixed;
+    bottom:90px;
+    left:20px;
+    background:#000;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:8px;
+    font-size:14px;
+    z-index:9999;
+  `;
+  document.body.appendChild(notif);
+  setTimeout(()=>notif.remove(),4000);
+},3000);
+</script>
