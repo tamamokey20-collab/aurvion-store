@@ -306,3 +306,151 @@ function changeLang(lang){
 
 </body>
 </html>
+<!-- SETTINGS MODAL -->
+<div class="modal" id="settingsModal">
+  <div class="modal-content">
+    <div class="close" onclick="closeSettings()">✖</div>
+    <h3>Settings</h3>
+    <p>🌐 Language</p>
+    <select onchange="changeLang(this.value)">
+      <option value="en">English</option>
+      <option value="tr">Türkçe</option>
+    </select>
+
+    <hr>
+
+    <p>👤 Account</p>
+    <button onclick="alert('Login coming soon')">Login</button>
+    <button onclick="alert('Register coming soon')">Create Account</button>
+
+    <hr>
+
+    <button onclick="openFAQ()">📖 FAQs</button>
+  </div>
+</div>
+
+<!-- FAQ MODAL -->
+<div class="modal" id="faqModal">
+  <div class="modal-content">
+    <div class="close" onclick="closeFAQ()">✖</div>
+    <h3>Frequently Asked Questions</h3>
+
+    <p><b>How long is shipping?</b><br>Usually 5–10 business days.</p>
+    <p><b>Do you offer free shipping?</b><br>Yes, on selected products.</p>
+    <p><b>Is payment secure?</b><br>Yes, Stripe & SSL protected.</p>
+    <p><b>Can I return products?</b><br>Yes, within 14 days.</p>
+  </div>
+</div><script>
+/* SETTINGS */
+function openSettings(){
+  document.getElementById("settingsModal").style.display="flex";
+}
+function closeSettings(){
+  document.getElementById("settingsModal").style.display="none";
+}
+
+/* FAQ */
+function openFAQ(){
+  document.getElementById("faqModal").style.display="flex";
+}
+function closeFAQ(){
+  document.getElementById("faqModal").style.display="none";
+}
+
+/* FAKE LIVE ORDERS (Temu vibe 😈) */
+setInterval(()=>{
+  const msg=document.createElement("div");
+  msg.innerText="⚡ Someone ordered in the last 5 minutes";
+  msg.style.position="fixed";
+  msg.style.bottom="90px";
+  msg.style.left="20px";
+  msg.style.background="#000";
+  msg.style.color="#fff";
+  msg.style.padding="10px 14px";
+  msg.style.borderRadius="8px";
+  msg.style.zIndex="9999";
+  document.body.appendChild(msg);
+  setTimeout(()=>msg.remove(),4000);
+},15000);
+</script><button class="icon-btn" onclick="openSettings()">⚙️</button><div class="modal" id="notifyModal">
+  <div class="modal-content">
+    <div class="close" onclick="closeNotify()">✖</div>
+    <h3>Notifications</h3>
+    <p>🔥 Mega Sale %70 OFF is live</p>
+    <p>🚚 Free shipping today</p>
+    <p>⚡ Last items in stock</p>
+  </div>
+</div><script>
+function openNotify(){
+  document.getElementById("notifyModal").style.display="flex";
+}
+function closeNotify(){
+  document.getElementById("notifyModal").style.display="none";
+}
+</script><div class="modal" id="wishlistModal">
+  <div class="modal-content">
+    <div class="close" onclick="closeWishlist()">✖</div>
+    <h3>Wishlist</h3>
+    <div id="wishlistItems">No favorites yet</div>
+  </div>
+</div><script>
+let wishlist=[];
+
+function addWishlist(name){
+  wishlist.push(name);
+  document.getElementById("wishlistItems").innerHTML=wishlist.join("<br>");
+}
+
+function openWishlist(){
+  document.getElementById("wishlistModal").style.display="flex";
+}
+function closeWishlist(){
+  document.getElementById("wishlistModal").style.display="none";
+}
+</script><button onclick="toggleMode()">🌙</button><script>
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
+</script>.dark{
+  background:#111;
+  color:#fff;<script>
+function liveSearch(){
+  let q=document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(q)?"block":"none";
+  });
+}
+</script>
+}<input id="searchInput" placeholder="Search products..." onkeyup="liveSearch()"<script>
+function liveSearch(){
+  let q=document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(q)?"block":"none";
+  });
+}
+</script><div class="modal" id="trackModal">
+  <div class="modal-content">
+    <div class="close" onclick="closeTrack()">✖</div>
+    <h3>Order Tracking</h3>
+    <p>Status: 🚚 On the way</p>
+    <p>Estimated delivery: 3–5 days</p>
+  </div>
+</div><script>
+function openTrack(){
+  document.getElementById("trackModal").style.display="flex";
+}
+function closeTrack(){
+  document.getElementById("trackModal").style.display="none";
+}
+</script><div class="modal" id="supportModal">
+  <div class="modal-content">
+    <div class="close" onclick="closeSupport()">✖</div>
+    <h3>Contact Support</h3>
+    <input placeholder="Your email">
+    <textarea placeholder="Your message"></textarea>
+    <button onclick="alert('Message sent')">Send</button>
+  </div>
+</div><div style="position:fixed;bottom:20px;right:20px;display:flex;gap:10px;z-index:999;">
+  <a href="https://www.instagram.com/alixzi07" target="_blank">📸</a>
+  <a href="https://www.tiktok.com/@alixizik" target="_blank">🎵</a>
+</div>
