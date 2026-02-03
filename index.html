@@ -300,3 +300,227 @@ setTimeout(()=>{
   setTimeout(()=>notif.remove(),4000);
 },3000);
 </script>
+<script>
+/* ===== STICKY TOP BAR ===== */
+const topBar = document.createElement("div");
+topBar.innerHTML = "🚚 Bugün sipariş ver → ÜCRETSİZ KARGO | 🔥 %70 İNDİRİM";
+topBar.style.cssText = `
+  position:fixed;top:0;left:0;width:100%;
+  background:#ff7a00;color:#fff;
+  text-align:center;padding:10px;
+  font-weight:bold;z-index:9999;
+`;
+document.body.appendChild(topBar);
+document.body.style.paddingTop="45px";
+
+
+/* ===== SEARCH BAR ===== */
+const search = document.createElement("input");
+search.placeholder="Ürün, marka veya kategori ara…";
+search.style.cssText=`
+  width:90%;max-width:420px;
+  display:block;margin:20px auto;
+  padding:12px;border-radius:10px;
+  border:1px solid #ccc;
+`;
+search.onkeyup=()=>{
+  const v=search.value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(v)?"block":"none";
+  });
+};
+document.body.insertBefore(search,document.body.children[1]);
+
+
+/* ===== CART COUNTER ===== */
+let cartCount=0;
+const cartBadge=document.createElement("div");
+cartBadge.innerText="🛒 0";
+cartBadge.style.cssText=`
+  position:fixed;top:60px;right:15px;
+  background:#000;color:#fff;
+  padding:8px 12px;border-radius:20px;
+  font-weight:bold;z-index:9999;
+`;
+document.body.appendChild(cartBadge);
+
+document.querySelectorAll("button").forEach(b=>{
+  b.onclick=()=>{
+    cartCount++;
+    cartBadge.innerText="🛒 "+cartCount;
+  }
+});
+
+
+/* ===== FAVORITE (HEART) ===== */
+document.querySelectorAll(".product").forEach(p=>{
+  const heart=document.createElement("span");
+  heart.innerHTML="🤍";
+  heart.style.cssText="cursor:pointer;font-size:20px;float:right";
+  heart.onclick=()=>heart.innerHTML=heart.innerHTML==="🤍"?"❤️":"🤍";
+  p.prepend(heart);
+});
+
+
+/* ===== LIVE SALES NOTIFICATION ===== */
+const messages=[
+  "🔥 İstanbul’dan biri satın aldı",
+  "⚡ Son 5 dakikada 3 sipariş",
+  "👀 12 kişi bu ürünü inceliyor",
+  "🛒 Sepete eklendi"
+];
+setInterval(()=>{
+  const n=document.createElement("div");
+  n.innerText=messages[Math.floor(Math.random()*messages.length)];
+  n.style.cssText=`
+    position:fixed;bottom:90px;left:20px;
+    background:#000;color:#fff;
+    padding:12px;border-radius:8px;
+    z-index:9999;font-size:14px;
+  `;
+  document.body.appendChild(n);
+  setTimeout(()=>n.remove(),4000);
+},8000);
+
+
+/* ===== INSTAGRAM & WHATSAPP ===== */
+const social=document.createElement("div");
+social.innerHTML=`
+<a href="https://instagram.com/aurvion" target="_blank">📸</a>
+<a href="https://wa.me/905000000000" target="_blank">💬</a>
+`;
+social.style.cssText=`
+  position:fixed;bottom:20px;right:20px;
+  background:#fff;border-radius:30px;
+  padding:10px 15px;display:flex;
+  gap:10px;font-size:22px;
+  box-shadow:0 0 10px rgba(0,0,0,.3);
+  z-index:9999;
+`;
+document.body.appendChild(social);
+
+
+/* ===== SCROLL TO TOP ===== */
+const topBtn=document.createElement("div");
+topBtn.innerText="⬆️";
+topBtn.style.cssText=`
+  position:fixed;bottom:20px;left:20px;
+  background:#ff7a00;color:#fff;
+  padding:10px;border-radius:50%;
+  cursor:pointer;z-index:9999;
+`;
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+document.body.appendChild(topBtn);
+</script>
+<script>
+/* ===== STICKY TOP BAR ===== */
+const topBar = document.createElement("div");
+topBar.innerHTML = "🚚 Bugün sipariş ver → ÜCRETSİZ KARGO | 🔥 %70 İNDİRİM";
+topBar.style.cssText = `
+  position:fixed;top:0;left:0;width:100%;
+  background:#ff7a00;color:#fff;
+  text-align:center;padding:10px;
+  font-weight:bold;z-index:9999;
+`;
+document.body.appendChild(topBar);
+document.body.style.paddingTop="45px";
+
+
+/* ===== SEARCH BAR ===== */
+const search = document.createElement("input");
+search.placeholder="Ürün, marka veya kategori ara…";
+search.style.cssText=`
+  width:90%;max-width:420px;
+  display:block;margin:20px auto;
+  padding:12px;border-radius:10px;
+  border:1px solid #ccc;
+`;
+search.onkeyup=()=>{
+  const v=search.value.toLowerCase();
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(v)?"block":"none";
+  });
+};
+document.body.insertBefore(search,document.body.children[1]);
+
+
+/* ===== CART COUNTER ===== */
+let cartCount=0;
+const cartBadge=document.createElement("div");
+cartBadge.innerText="🛒 0";
+cartBadge.style.cssText=`
+  position:fixed;top:60px;right:15px;
+  background:#000;color:#fff;
+  padding:8px 12px;border-radius:20px;
+  font-weight:bold;z-index:9999;
+`;
+document.body.appendChild(cartBadge);
+
+document.querySelectorAll("button").forEach(b=>{
+  b.onclick=()=>{
+    cartCount++;
+    cartBadge.innerText="🛒 "+cartCount;
+  }
+});
+
+
+/* ===== FAVORITE (HEART) ===== */
+document.querySelectorAll(".product").forEach(p=>{
+  const heart=document.createElement("span");
+  heart.innerHTML="🤍";
+  heart.style.cssText="cursor:pointer;font-size:20px;float:right";
+  heart.onclick=()=>heart.innerHTML=heart.innerHTML==="🤍"?"❤️":"🤍";
+  p.prepend(heart);
+});
+
+
+/* ===== LIVE SALES NOTIFICATION ===== */
+const messages=[
+  "🔥 İstanbul’dan biri satın aldı",
+  "⚡ Son 5 dakikada 3 sipariş",
+  "👀 12 kişi bu ürünü inceliyor",
+  "🛒 Sepete eklendi"
+];
+setInterval(()=>{
+  const n=document.createElement("div");
+  n.innerText=messages[Math.floor(Math.random()*messages.length)];
+  n.style.cssText=`
+    position:fixed;bottom:90px;left:20px;
+    background:#000;color:#fff;
+    padding:12px;border-radius:8px;
+    z-index:9999;font-size:14px;
+  `;
+  document.body.appendChild(n);
+  setTimeout(()=>n.remove(),4000);
+},8000);
+
+
+/* ===== INSTAGRAM & WHATSAPP ===== */
+const social=document.createElement("div");
+social.innerHTML=`
+<a href="https://instagram.com/aurvion" target="_blank">📸</a>
+<a href="https://wa.me/905000000000" target="_blank">💬</a>
+`;
+social.style.cssText=`
+  position:fixed;bottom:20px;right:20px;
+  background:#fff;border-radius:30px;
+  padding:10px 15px;display:flex;
+  gap:10px;font-size:22px;
+  box-shadow:0 0 10px rgba(0,0,0,.3);
+  z-index:9999;
+`;
+document.body.appendChild(social);
+
+
+/* ===== SCROLL TO TOP ===== */
+const topBtn=document.createElement("div");
+topBtn.innerText="⬆️";
+topBtn.style.cssText=`
+  position:fixed;bottom:20px;left:20px;
+  background:#ff7a00;color:#fff;
+  padding:10px;border-radius:50%;
+  cursor:pointer;z-index:9999;
+`;
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+document.body.appendChild(topBtn);
+</script>
