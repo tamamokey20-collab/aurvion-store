@@ -524,3 +524,44 @@ topBtn.style.cssText=`
 topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 document.body.appendChild(topBtn);
 </script>
+<script>
+/* DUPLICATE FLOAT CLEANER */
+document.querySelectorAll('a').forEach(a=>{
+  if(a.innerText.includes("Instagram") || a.innerText.includes("WhatsApp")){
+    if(a.dataset.cleaned) return;
+    a.dataset.cleaned = true;
+  }
+});
+
+document.querySelectorAll('div').forEach(d=>{
+  if(d.innerText?.includes("Instagram") && d.style.position==="fixed"){
+   
+  d.remove();
+  }
+});
+</script><script>
+const langBox = document.createElement("div");
+langBox.innerHTML = `
+<select id="langSelect">
+  <option value="tr">🇹🇷 TR</option>
+  <option value="en">🇬🇧 EN</option>
+  <option value="nl">🇳🇱 NL</option>
+</select>
+`;
+langBox.style.cssText = `
+  position:fixed;
+  top:90px;
+  right:15px;
+  z-index:9999;
+`;
+langBox.querySelector("select").style.cssText=`
+  padding:8px;
+  border-radius:8px;
+  font-weight:bold;
+`;
+document.body.appendChild(langBox);
+
+document.getElementById("langSelect").onchange=(e)=>{
+  alert("Dil seçildi: "+e.target.value+" (bir sonraki adımda içerik bağlanacak)");
+};
+</script>
