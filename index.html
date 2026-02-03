@@ -1,242 +1,241 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>AURVION | Official Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>AURVION</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#f4f4f4;color:#111}
 
-    body {
-      background: #f5f5f5;
-      color: #111;
-    }
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  padding:15px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:28px;
+  font-weight:800;
+  color:#ff7a00;
+}
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
+}
 
-    /* HEADER */
-    header {
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+/* HERO */
+.hero{
+  background:#777;
+  color:#fff;
+  text-align:center;
+  padding:90px 20px;
+}
+.hero h1{
+  font-size:52px;
+  margin-bottom:10px;
+}
+.hero span{color:#ff7a00}
+.hero p{font-size:18px;margin-bottom:30px}
+.hero button{
+  background:#ff7a00;
+  color:#fff;
+  border:none;
+  padding:15px 40px;
+  font-size:18px;
+  cursor:pointer;
+  border-radius:5px;
+}
 
-    header h1 {
-      color: #ff6a00;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+/* SECTION */
+.section{
+  max-width:1300px;
+  margin:auto;
+  padding:60px 30px;
+}
+.section h2{
+  font-size:34px;
+  margin-bottom:30px;
+}
 
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #111;
-      font-weight: 600;
-    }
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.product{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.product img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+.product-content{
+  padding:20px;
+  text-align:center;
+}
+.product-content h3{
+  font-size:18px;
+  margin-bottom:10px;
+}
+.price{
+  color:#ff7a00;
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+.product-content button{
+  background:#000;
+  color:#fff;
+  border:none;
+  padding:12px 25px;
+  cursor:pointer;
+  border-radius:6px;
+}
 
-    nav a:hover {
-      color: #ff6a00;
-    }
+/* CART */
+#cart{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:350px;
+  height:100%;
+  background:#fff;
+  box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+  padding:20px;
+  transition:.3s;
+  z-index:999;
+}
+#cart h3{margin-bottom:20px}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+#cart button{
+  width:100%;
+  padding:15px;
+  background:#ff7a00;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
+}
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.55)
-      ),
-      url("https://images.unsplash.com/photo-1521335629791-ce4aec67dd47") center/cover no-repeat;
-      color: #fff;
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .hero span {
-      color: #ff6a00;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .hero button {
-      background: #ff6a00;
-      border: none;
-      padding: 15px 35px;
-      font-size: 16px;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    /* PRODUCTS */
-    .section {
-      padding: 60px 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section h3 {
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .product {
-      background: #fff;
-      border-radius: 6px;
-      padding: 15px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-
-    .product img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .product h4 {
-      margin: 15px 0 8px;
-      font-size: 16px;
-    }
-
-    .price {
-      color: #ff6a00;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-
-    .product button {
-      background: #111;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .product button:hover {
-      background: #ff6a00;
-    }
-
-    /* NEWSLETTER */
-    .newsletter {
-      background: #ff6a00;
-      padding: 60px 20px;
-      color: #fff;
-      text-align: center;
-    }
-
-    .newsletter input {
-      padding: 12px;
-      width: 260px;
-      border: none;
-      margin-right: 10px;
-    }
-
-    .newsletter button {
-      padding: 12px 20px;
-      border: none;
-      background: #111;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #111;
-      color: #aaa;
-      padding: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-  </style>
+/* FOOTER */
+footer{
+  background:#111;
+  color:#fff;
+  padding:50px 20px;
+  text-align:center;
+}
+footer a{
+  color:#ff7a00;
+  text-decoration:none;
+  margin:0 10px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>AURVION</h1>
+  <div class="logo">AURVION</div>
   <nav>
     <a href="#">Shop</a>
     <a href="#">New Arrivals</a>
     <a href="#">Best Sellers</a>
     <a href="#">Sale</a>
-    <a href="#">Blog</a>
+    <a href="#" onclick="openCart()">🛒 Sepet</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>MEGA SALE <span>%70 OFF</span></h2>
+  <h1>MEGA SALE <span>%70 OFF</span></h1>
   <p>Yeni sezon ürünlerinde büyük indirim</p>
   <button>SHOP NOW</button>
 </section>
 
 <section class="section">
-  <h3>New Arrivals</h3>
+<h2>New Arrivals</h2>
 
-  <div class="products">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1519741497674-611481863552" />
-      <h4>Leather Backpack</h4>
-      <div class="price">₺1.299</div>
-      <button>Sepete Ekle</button>
-    </div>
+<div class="products">
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" />
-      <h4>Smart Watch</h4>
-      <div class="price">₺999</div>
-      <button>Sepete Ekle</button>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1511556820780-d912e42b4980" />
-      <h4>Wireless Headphones</h4>
-      <div class="price">₺899</div>
-      <button>Sepete Ekle</button>
-    </div>
-
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1528701800489-20be1c1b9b1c" />
-      <h4>Casual Sneakers</h4>
-      <div class="price">₺1.099</div>
-      <button>Sepete Ekle</button>
-    </div>
+<div class="product">
+  <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+  <div class="product-content">
+    <h3>Lüks Erkek Saat</h3>
+    <div class="price">€129</div>
+    <button onclick="addToCart('Lüks Erkek Saat',129)">Sepete Ekle</button>
   </div>
-</section>
+</div>
 
-<section class="newsletter">
-  <h3>Join Our Newsletter</h3>
-  <p>İndirimlerden ilk sen haberdar ol</p><br/>
-  <input type="email" placeholder="E-posta adresin" />
-  <button>Subscribe</button>
+<div class="product">
+  <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f">
+  <div class="product-content">
+    <h3>Premium Ceket</h3>
+    <div class="price">€199</div>
+    <button onclick="addToCart('Premium Ceket',199)">Sepete Ekle</button>
+  </div>
+</div>
+
+<div class="product">
+  <img src="https://images.unsplash.com/photo-1526178613658-3f1622042e53">
+  <div class="product-content">
+    <h3>Modern Ayakkabı</h3>
+    <div class="price">€149</div>
+    <button onclick="addToCart('Modern Ayakkabı',149)">Sepete Ekle</button>
+  </div>
+</div>
+
+</div>
 </section>
 
 <footer>
-  © 2026 AURVION. All rights reserved.
+  <p>© 2026 AURVION STORE</p>
+  <p>
+    <a href="#">Instagram</a> |
+    <a href="#">İletişim</a> |
+    <a href="#">Gizlilik</a>
+  </p>
 </footer>
+
+<div id="cart">
+  <h3>Sepet</h3>
+  <div id="cartItems"></div>
+  <button>Ödemeye Geç (yakında)</button>
+</div>
+
+<script>
+let cart=[];
+function openCart(){
+  document.getElementById("cart").style.right="0";
+}
+function addToCart(name,price){
+  cart.push({name,price});
+  renderCart();
+  openCart();
+}
+function renderCart(){
+  let html="";
+  cart.forEach(i=>{
+    html+=`<div class="cart-item"><span>${i.name}</span><span>€${i.price}</span></div>`;
+  });
+  document.getElementById("cartItems").innerHTML=html;
+}
+</script>
 
 </body>
 </html>
